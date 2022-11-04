@@ -22,7 +22,7 @@ prevImg0.classList.add("active");
 
 btnNext.addEventListener("click", function () {
 
-    const active = document.querySelector(`.img-preview-container img:nth-child(${count + 1})`);
+    active = document.querySelector(`.img-preview-container img:nth-child(${count + 1})`);
     active.classList.remove("active")
 
 
@@ -53,11 +53,26 @@ btnNext.addEventListener("click", function () {
 
 
 btnPrev.addEventListener("click", function () {
+
+    active = document.querySelector(`.img-preview-container img:nth-child(${count + 1})`);
+    active.classList.remove("active")
     count--;
     if (count < 0) {
         count = 4;
     }
     imgEl.src = images[count]
     console.log(count);
+
+    if (count === 0) {
+        prevImg0.classList.add("active");
+    } else if (count === 1) {
+        prevImg1.classList.add("active");
+    } else if (count === 2) {
+        prevImg2.classList.add("active");
+    } else if (count === 3) {
+        prevImg3.classList.add("active");
+    } else {
+        prevImg4.classList.add("active");
+    }
 
 })
